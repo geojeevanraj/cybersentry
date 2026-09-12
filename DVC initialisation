@@ -1,0 +1,8 @@
+pip install 'dvc[all]'
+dvc init
+dvc add data/raw
+git add data/raw.dvc data/.gitignore .dvc/config
+ 
+# optional remote (local dir is fine for M1)
+dvc remote add -d localstore /tmp/cybersentry-dvcstore
+dvc push
