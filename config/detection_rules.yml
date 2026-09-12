@@ -1,0 +1,49 @@
+# Detection-as-code. Every rule carries its ATT&CK mapping and a version.
+rules:
+  - code: DR001_BRUTE_FORCE
+    version: 1
+    title: Repeated failed authentication from a single source
+    attack_technique: T1110
+    attack_tactic: credential-access
+    base_severity: medium
+    params: { failures: 15, window_minutes: 5 }
+ 
+  - code: DR002_IMPOSSIBLE_TRAVEL
+    version: 1
+    title: Successful logins from geographically impossible locations
+    attack_technique: T1078
+    attack_tactic: initial-access
+    base_severity: high
+    params: { max_kph: 900 }
+ 
+  - code: DR003_LSASS_ACCESS
+    version: 1
+    title: Non-system process opened a handle to LSASS
+    attack_technique: T1003.001
+    attack_tactic: credential-access
+    base_severity: critical
+    params: {}
+ 
+  - code: DR004_ENCODED_POWERSHELL
+    version: 1
+    title: PowerShell executed with an encoded command
+    attack_technique: T1059.001
+    attack_tactic: execution
+    base_severity: high
+    params: { min_length: 120 }
+ 
+  - code: DR005_DNS_TUNNEL
+    version: 1
+    title: Anomalous DNS query volume and entropy to a single domain
+    attack_technique: T1071.004
+    attack_tactic: command-and-control
+    base_severity: high
+    params: { queries_per_minute: 60, min_entropy: 3.5 }
+
+    - code: DR006_CLOUD_KEY_CREATED
+    version: 1
+    title: New access key created for a privileged identity
+    attack_technique: T1098
+    attack_tactic: persistence
+    base_severity: medium
+    params: {}

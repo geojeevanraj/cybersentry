@@ -1,0 +1,31 @@
+{
+  "index_patterns": ["sentry-events-*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0,
+      "refresh_interval": "5s"
+    },
+    "mappings": {
+      "properties": {
+        "@timestamp":      { "type": "date" },
+        "event_id":        { "type": "keyword" },
+        "source_type":     { "type": "keyword" },
+        "host_id":         { "type": "keyword" },
+        "hostname":        { "type": "keyword" },
+        "user_name":       { "type": "keyword" },
+        "process_name":    { "type": "keyword" },
+        "process_guid":    { "type": "keyword" },
+        "parent_guid":     { "type": "keyword" },
+        "command_line":    { "type": "text" },
+        "source_ip":       { "type": "ip" },
+        "destination_ip":  { "type": "ip" },
+        "destination_port":{ "type": "integer" },
+        "dns_query":       { "type": "keyword" },
+        "action":          { "type": "keyword" },
+        "outcome":         { "type": "keyword" },
+        "raw":             { "type": "object", "enabled": false }
+      }
+    }
+  }
+}
