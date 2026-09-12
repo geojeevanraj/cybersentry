@@ -1,0 +1,55 @@
+# ---- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+ 
+# ---- Environment ---
+.env
+.env.local
+*.local.yml
+ 
+# ---- Editors / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+ 
+# ---- Model artefacts ---
+*.pt
+*.pth
+*.h5
+*.onnx
+*.pkl
+*.joblib
+mlruns/
+mlartifacts/
+ 
+# ---- Data (tracked by DVC, not Git) ---
+data/raw/*
+data/interim/*
+data/processed/*
+!data/**/.gitkeep
+!data/**/*.dvc
+ 
+# ---- Docker / infra ---
+docker-compose.override.yml
+*.log
+logs/
+
+# ---- CyberSentry specific ---
+# Telemetry contains hostnames, usernames and IP addresses
+data/raw/telemetry/*
+!data/raw/telemetry/.gitkeep
+*.evtx
+*.pcap
+*.pcapng
+*.key
+*.pem
+opensearch-data/
+kafka-data/
