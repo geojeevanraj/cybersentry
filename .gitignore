@@ -53,3 +53,7 @@ data/raw/telemetry/*
 *.pem
 opensearch-data/
 kafka-data/
+data/processed/
+artifacts/
+reports/
+mlruns/
