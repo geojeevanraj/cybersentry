@@ -1,0 +1,13 @@
+# Promotion gates - read by promote.py and verify_m2.py.
+# path is a dotted key into reports/eval.json; op is one of >= <= > <
+gates:
+  # Platform objective: 85%+ of brute-force scenarios surfaced in budget
+  - {path: model.coverage_T1110, op: '>=', threshold: 0.85}
+  # ...and 85%+ of lateral-movement scenarios - per technique, not averaged
+  - {path: model.coverage_T1021, op: '>=', threshold: 0.85}
+  # At least half the queue is real attack activity
+  - {path: model.precision_at_budget, op: '>=', threshold: 0.5}
+  # Ranking quality on the unseen future window
+  - {path: model.pr_auc, op: '>=', threshold: 0.7}
+  # Same analyst effort, cleaner queue than the rules alone
+  - {path: derived.precision_gain_at_budget, op: '>', threshold: 0.0}
