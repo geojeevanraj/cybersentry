@@ -86,7 +86,7 @@ def seed_reference(cur) -> None:
         'INSERT INTO detection_rules (rule_code, version, title, technique_id, base_severity, '
         "params, author) VALUES (%s,%s,%s,%s,%s,%s::jsonb,'soc-engineering') "
         'ON CONFLICT DO NOTHING', RULES)
- cur.executemany(
+    cur.executemany(
         'INSERT INTO playbooks (playbook_id, title, trigger_technique, steps, '
         'requires_approval) VALUES (%s,%s,%s,%s::jsonb,%s) ON CONFLICT DO NOTHING', PLAYBOOKS)
  
