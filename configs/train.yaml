@@ -1,0 +1,49 @@
+experiment: cybersentry-m2
+run_name: hpo-best
+simulate:
+  n_users: 300
+  n_comps: 150
+  n_steps: 720
+  n_scenarios: 30
+split:
+  train_end_step: 480
+  val_end_step: 576
+  embargo_steps: 24
+triage_budget: 0.01
+model:
+  n_estimators: 2000
+  learning_rate: 0.012406811759543848
+  num_leaves: 164
+  min_child_samples: 411
+  subsample: 0.8
+  colsample_bytree: 0.8366425322027264
+  reg_lambda: 5.0246249314078195
+  scale_pos_weight: 1.2541837950703738
+hpo:
+  metric: val_pr_auc
+  direction: maximize
+  space:
+    learning_rate:
+    - log
+    - 0.01
+    - 0.15
+    num_leaves:
+    - int
+    - 15
+    - 255
+    min_child_samples:
+    - int
+    - 20
+    - 500
+    colsample_bytree:
+    - float
+    - 0.4
+    - 1.0
+    scale_pos_weight:
+    - log
+    - 1
+    - 50
+    reg_lambda:
+    - log
+    - 0.001
+    - 10
